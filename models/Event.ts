@@ -1,5 +1,5 @@
 import { Schema, model, Document } from "mongoose";
-import { ICalendarEvent } from "../interfaces/calendarEvent.interfaces";
+import { ICalendarEvent } from "../interfaces/calendarEvent.interfaces.js";
 
 // Interface for Mongoose Document with ICalendarEvent properties
 interface IEventDocument extends Omit<ICalendarEvent, '_id'>, Document {}

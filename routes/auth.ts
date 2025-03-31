@@ -1,6 +1,6 @@
-import { createUser, loginUser, renewToken } from 'controllers/authController';
-import { fieldsValidators } from 'middleware/fieldsValidators';
-import { jwtValidator } from 'middleware/jwt-validator';
+import { createUser, loginUser, renewToken } from '../controllers/authController.js';
+import { fieldsValidators } from '../middleware/fieldsValidators.js';
+import { jwtValidator } from '../middleware/jwt-validator.js';
 import express, { RequestHandler } from 'express';
 import { check } from 'express-validator';
 

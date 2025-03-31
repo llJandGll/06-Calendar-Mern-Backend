@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
-import { User } from '../models/User';
+import { User } from '../models/User.js';
 import bcrypt from 'bcryptjs';
-import { generateToken } from '../helpers/jwt';
+import { generateToken } from '../helpers/jwt.js';
 import { 
   IAuthResponse, 
   ILoginRequest, 
   IRegisterRequest,
   IJwtPayload 
-} from '../interfaces/auth.interfaces';
+} from '../interfaces/auth.interfaces.js';
 
 export const createUser = async (
   req: Request<{}, {}, IRegisterRequest>, 

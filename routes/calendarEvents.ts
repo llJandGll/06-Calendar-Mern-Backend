@@ -1,8 +1,8 @@
-import { createEvent, updateEvent, deleteEvent, getEvents } from "controllers/calendarEventsController";
-import { check } from "express-validator"
+import { createEvent, updateEvent, deleteEvent, getEvents } from "../controllers/calendarEventsController.js";
+import { check } from "express-validator";
 import { RequestHandler, Router } from "express";
-import { jwtValidator } from "middleware/jwt-validator";
-import { calendarValidators } from "middleware/calendarValidators";
+import { jwtValidator } from "../middleware/jwt-validator.js";
+import { calendarValidators } from "../middleware/calendarValidators.js";
 
 
 /* 

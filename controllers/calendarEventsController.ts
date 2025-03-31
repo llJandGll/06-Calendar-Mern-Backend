@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import Event from "../models/Event";
-import { IJwtPayload } from "../interfaces/auth.interfaces";
+import Event from "../models/Event.js";
+import { IJwtPayload } from "../interfaces/auth.interfaces.js";
 
 export const getEvents = async (req: Request, res: Response) => {
   // obtener los eventos de la base de datos

@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { IJwtPayload } from '../interfaces/auth.interfaces';
+import { IJwtPayload } from '../interfaces/auth.interfaces.js';
 
 // the params are the user id and the user name
 export const generateToken = (uid: string, name: string): Promise<string> => {
