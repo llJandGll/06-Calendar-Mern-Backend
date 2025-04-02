@@ -14,10 +14,7 @@ const app: Express = express();
  connectDB();
 
 // cors
-app.use(cors({
-    origin: process.env.CORS_ORIGIN,
-    credentials: true,
-}));
+app.use(cors());
 
 // public directory
 app.use(express.static('public'));
