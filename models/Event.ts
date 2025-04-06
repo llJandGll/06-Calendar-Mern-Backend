@@ -5,6 +5,14 @@ import { ICalendarEvent } from "../interfaces/calendarEvent.interfaces.js";
 interface IEventDocument extends Omit<ICalendarEvent, '_id'>, Document {}
 
 const EventSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  lastName: {
+    type: String,
+    required: true
+  },
   tratament: {
     type: String,
     required: true

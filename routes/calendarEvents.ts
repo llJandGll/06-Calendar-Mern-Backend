@@ -27,6 +27,8 @@ router.get(
 router.post(
   "/", 
   [
+    check("name", "El nombre es requerido").not().isEmpty(),
+    check("lastName", "El apellido es requerido").not().isEmpty(),
     check("tratament", "El tratamento es requerido").not().isEmpty(),
     check("start", "La fecha de inicio debe ser valida").isISO8601().toDate(),
     check("end", "La fecha de fin debe ser valida").isISO8601().toDate(),

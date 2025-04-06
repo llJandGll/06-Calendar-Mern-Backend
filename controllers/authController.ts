@@ -19,7 +19,7 @@ export const createUser = async (
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({
-        message: 'User already exists',
+        message: 'El correo ya está registrado',
         status: 400
       });
     }
@@ -38,7 +38,7 @@ export const createUser = async (
     await user.save();
     
     const response: IAuthResponse = {
-      message: 'User created successfully',
+      message: 'Usuario creado correctamente',
       status: 201,
       user: {
         uid: user._id.toString(),
@@ -53,7 +53,7 @@ export const createUser = async (
   } catch (error) {
     console.log(error);
     res.status(500).json({
-      message: 'User creation failed',
+      message: 'Error al crear usuario',
       status: 500
     });
   }
@@ -69,7 +69,7 @@ export const loginUser = async (
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({
-        message: 'User not found',
+        message: 'correo o contraseña incorrectos',
         status: 400
       });
     }
@@ -77,7 +77,7 @@ export const loginUser = async (
     const validPassword = bcrypt.compareSync(password, user.password);
     if (!validPassword) {
       return res.status(400).json({
-        message: 'Invalid password',
+        message: 'correo o contraseña incorrectos',
         status: 400
       });
     }
@@ -85,7 +85,7 @@ export const loginUser = async (
     const token = await generateToken(user._id.toString(), user.name);
 
     const response: IAuthResponse = {
-      message: 'User logged in successfully',
+      message: 'Usuario logueado correctamente',
       status: 200,
       user: {
         uid: user._id.toString(),
@@ -99,7 +99,7 @@ export const loginUser = async (
 
   } catch (error) {
     res.status(500).json({
-      message: 'User login failed',
+      message: 'Error al loguear usuario',
       status: 500
     });
   }
@@ -115,13 +115,17 @@ export const renewToken = async (
     const token = await generateToken(uid, name);
 
     res.status(200).json({
-      message: 'Token renewed successfully',
+      message: 'Token renovado correctamente',
       status: 200,
-      token
+      user: {
+        uid,
+        name,
+        token
+      }
     });
   } catch (error) {
     res.status(500).json({
-      message: 'Token renewal failed',
+      message: 'Error al renovar token',
       status: 500
     });
   }
