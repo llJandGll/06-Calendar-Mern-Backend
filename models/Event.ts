@@ -62,6 +62,8 @@ const EventSchema = new Schema({
 EventSchema.methods.toJSON = function() {
   const { __v, _id, ...event } = this.toObject();
   event.id = _id;
+  event.user.uid = event.user._id;
+  delete event.user._id;
   return event;
 }
 

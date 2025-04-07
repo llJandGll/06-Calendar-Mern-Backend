@@ -24,8 +24,6 @@ export const getEvents = async (req: Request, res: Response) => {
       msg: "Error al obtener los eventos"
     });
   }
-
-
 }
 
 export const createEvent = async (req: Request, res: Response) => {
